@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>ZENZO – Smart Utility Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     :root{
@@ -10,16 +11,17 @@
       --text:#e5e7eb;
     }
 
+    *{box-sizing:border-box}
+
     body{
       margin:0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+      font-family:system-ui, -apple-system, BlinkMacSystemFont;
       background:linear-gradient(135deg,#020617,#020617,#0f172a);
       color:var(--text);
-      padding-top:90px; /
-* navbar ke niche space */
+      padding-top:90px; /* navbar ke niche space */
     }
 
-    /* ✅ NAVBAR CSS YAHI PASTE KARO */
+    /* 🔝 NAVBAR */
     .navbar{
       position:fixed;
       top:0;
@@ -48,40 +50,8 @@
       font-weight:500;
     }
     .nav-links a:hover{color:var(--accent)}
-  </style>
-<head>
-  <meta charset="UTF-8">
-  <title>ZENZO – Smart Utility Platform</title>
 
-  <style>
-    :root{
-      --accent:#2fe6d6;
-      --text:#e5e7eb;
-    }
-
-    body{
-      margin:0;
-      font-family:system-ui;
-      background:linear-gradient(135deg,#020617,#020617,#0f172a);
-      color:var(--text);
-      padding-top:90px;
-    }
-
-    /* 🔝 NAVBAR */
-    .navbar{
-      position:fixed;
-      top:0;
-      width:100%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:16px 28px;
-      background:rgba(2,6,23,.85);
-      backdrop-filter:blur(14px);
-      z-index:1000;
-    }
-
-    /* 🔥 HERO SECTION */
+    /* 🔥 HERO */
     .hero{
       min-height:100vh;
       display:flex;
@@ -95,8 +65,8 @@
     .hero h1{
       font-size:3.5rem;
       font-weight:800;
-      line-height:1.1;
       color:white;
+      line-height:1.1;
     }
 
     .hero h1 span{
@@ -116,6 +86,7 @@
       display:flex;
       gap:18px;
       justify-content:center;
+      flex-wrap:wrap;
     }
 
     .btn{
@@ -131,61 +102,49 @@
       color:#020617;
     }
 
+    .btn.primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 30px rgba(56,189,248,.35);
+    }
+
     .btn.secondary{
       border:1px solid rgba(255,255,255,.2);
       color:white;
+    }
+
+    .btn.secondary:hover{
+      background:rgba(255,255,255,.08);
     }
   </style>
 </head>
 
 <body>
-.navbar{
-  position:fixed;
-  top:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px 28px;
-  background:rgba(2,6,23,.85);
-  backdrop-filter:blur(14px);
-  z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,.05);
-}
-.logo{
-  font-size:1.4rem;
-  font-weight:700;
-  color:white;
-}
-.logo span{color:var(--accent)}
-.nav-links a{
-  margin-left:22px;
-  color:#cbd5f5;
-  text-decoration:none;
-  font-weight:500;
-}
-.nav-links a:hover{color:var(--accent)}
-<header>
-  <h1>ZEN<span>ZO</span></h1>
-  <p>All-in-One Smart Utility Platform for Everyday Digital Needs</p>
-  <a class="btn" href="#features">Explore Features</a>
-</header>
 
-<section id="features">
-  <h2>✨ Core Features</h2>
-  <div class="grid">
-    <div class="card">🧮 Smart Calculators<br><small>Age, EMI, GST, Discount</small></div>
-    <div class="card">🌍 Converters<br><small>Unit & Currency</small></div>
-    <div class="card">⚡ Fast & Lightweight<br><small>Optimized performance</small></div>
-    <div class="card">📱 Mobile-First Design<br><small>App-like experience</small></div>
-    <div class="card">🔒 Secure & Private<br><small>No tracking</small></div>
-    <div class="card">🚀 App-Ready<br><small>PWA + Android future</small></div>
-  </div>
-</section>
+  <nav class="navbar">
+    <div class="logo">ZEN<span>ZO</span></div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#ai">AI</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-<footer>
-  © 2026 ZENZO • Built for simplicity & speed
-</footer>
+  <header class="hero">
+    <h1>
+      All-in-One <span>AI Smart</span><br>
+      Utility Platform
+    </h1>
+
+    <p>
+      ZENZO brings AI-powered tools, automation, and smart utilities
+      into one ultra-premium platform.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#features" class="btn primary">Explore Features</a>
+      <a href="#ai" class="btn secondary">Try AI Tools</a>
+    </div>
+  </header>
 
 </body>
 </html>
