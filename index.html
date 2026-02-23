@@ -1,258 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ZENZO – Smart Utility Platform</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>ZENZO – Ultra-Premium Smart Utility Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ZENZO – AI Smart Utility Platform with calculators, converters, AI tools & premium features.">
+<meta name="theme-color" content="#020617">
 
-  <style>
-    :root{
-      --accent:#2fe6d6;
-      --text:#e5e7eb;
-    }
+<style>
+:root{
+  --accent:#2fe6d6;
+  --accent2:#38bdf8;
+  --text:#e5e7eb;
+  --bg:#020617;
+}
 
-    *{box-sizing:border-box}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
-    body{
-      margin:0;
-      font-family:system-ui, -apple-system, BlinkMacSystemFont;
-      background:linear-gradient(135deg,#020617,#020617,#0f172a);
-      color:var(--text);
-      padding-top:90px;
-    }
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont;
+  background:#020617;
+  color:var(--text);
+  padding-top:90px;
+  overflow-x:hidden;
+}
 
-    /* 🔝 NAVBAR */
-    .navbar{
-      position:fixed;
-      top:0;
-      width:100%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:16px 28px;
-      background:rgba(2,6,23,.85);
-      backdrop-filter:blur(14px);
-      z-index:1000;
-      border-bottom:1px solid rgba(255,255,255,.05);
-    }
+/* 🌌 PARTICLE BACKGROUND */
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
 
-    .logo{
-      font-size:1.4rem;
-      font-weight:700;
-      color:white;
-    }
-    .logo span{color:var(--accent)}
+/* 🔝 NAVBAR */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 28px;
+  background:rgba(2,6,23,.85);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  z-index:1000;
+}
+.logo{
+  font-size:1.5rem;
+  font-weight:900;
+  letter-spacing:.5px;
+}
+.logo span{color:var(--accent)}
+.nav-links a{
+  margin-left:22px;
+  color:#cbd5f5;
+  text-decoration:none;
+  font-weight:500;
+}
+.nav-links a:hover{color:var(--accent)}
 
-    .nav-links a{
-      margin-left:22px;
-      color:#cbd5f5;
-      text-decoration:none;
-      font-weight:500;
-    }
-    .nav-links a:hover{color:var(--accent)}
+/* 🔥 HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 20px;
+}
+.hero h1{
+  font-size:3.8rem;
+  font-weight:900;
+  line-height:1.1;
+}
+.hero h1 span{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{
+  max-width:720px;
+  margin:24px auto 40px;
+  font-size:1.15rem;
+  color:#cbd5f5;
+}
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.btn{
+  padding:14px 32px;
+  border-radius:30px;
+  font-weight:800;
+  text-decoration:none;
+  transition:.3s;
+}
+.btn.primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+}
+.btn.primary:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 50px rgba(47,230,214,.4);
+}
+.btn.secondary{
+  border:1px solid rgba(255,255,255,.25);
+  color:white;
+}
+.btn.secondary:hover{background:rgba(255,255,255,.08)}
 
-    /* 🔥 HERO */
-    .hero{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:40px 20px;
-    }
+/* ✨ FEATURES */
+.features{
+  padding:110px 20px;
+  max-width:1200px;
+  margin:auto;
+  text-align:center;
+}
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  margin-top:70px;
+}
+.feature-card{
+  background:rgba(17,24,39,.65);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:26px;
+  padding:38px 30px;
+  transition:.4s;
+}
+.feature-card svg{
+  width:42px;
+  height:42px;
+  fill:var(--accent);
+  margin-bottom:18px;
+}
+.feature-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 30px 70px rgba(47,230,214,.2);
+}
 
-    .hero h1{
-      font-size:3.5rem;
-      font-weight:800;
-      color:white;
-      line-height:1.1;
-    }
+/* 👑 PREMIUM */
+.premium{
+  padding:120px 20px;
+  background:linear-gradient(135deg,rgba(47,230,214,.08),transparent);
+  text-align:center;
+}
+.premium-grid{
+  max-width:1100px;
+  margin:70px auto 0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.premium-card{
+  background:#020617;
+  border:1px solid rgba(47,230,214,.25);
+  border-radius:28px;
+  padding:40px 30px;
+}
+.badge{
+  display:inline-block;
+  padding:6px 16px;
+  border-radius:20px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#020617;
+  font-weight:900;
+  font-size:.75rem;
+}
 
-    .hero h1 span{
-      background:linear-gradient(90deg,#2fe6d6,#38bdf8);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+/* 📢 ADS */
+.ads{
+  max-width:1200px;
+  margin:130px auto;
+  padding:40px;
+  border:2px dashed rgba(255,255,255,.15);
+  border-radius:20px;
+  text-align:center;
+  color:#94a3b8;
+}
 
-    .hero p{
-      max-width:650px;
-      margin:20px auto 35px;
-      font-size:1.1rem;
-      color:#cbd5f5;
-    }
+/* 📲 PWA */
+#installBtn{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+  border:none;
+  padding:14px 22px;
+  border-radius:30px;
+  font-weight:800;
+  display:none;
+  cursor:pointer;
+}
 
-    .hero-buttons{
-      display:flex;
-      gap:18px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:14px 28px;
-      border-radius:30px;
-      font-weight:600;
-      text-decoration:none;
-      transition:.3s ease;
-    }
-
-    .btn.primary{
-      background:linear-gradient(135deg,#2fe6d6,#38bdf8);
-      color:#020617;
-    }
-
-    .btn.primary:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 30px rgba(56,189,248,.35);
-    }
-
-    .btn.secondary{
-      border:1px solid rgba(255,255,255,.2);
-      color:white;
-    }
-
-    .btn.secondary:hover{
-      background:rgba(255,255,255,.08);
-    }
-
-    /* ✨ FEATURES SECTION */
-    .features{
-      padding:100px 20px;
-      max-width:1200px;
-      margin:auto;
-      text-align:center;
-    }
-
-    .features h2{
-      font-size:2.6rem;
-      color:white;
-      margin-bottom:12px;
-    }
-
-    .features-sub{
-      max-width:680px;
-      margin:0 auto 60px;
-      color:#cbd5f5;
-      font-size:1.05rem;
-    }
-
-    .features-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:26px;
-    }
-
-    .feature-card{
-      background:rgba(17,24,39,.65);
-      backdrop-filter:blur(14px);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:22px;
-      padding:34px 26px;
-      transition:.35s ease;
-    }
-
-    .feature-card span{
-      font-size:2rem;
-      display:block;
-      margin-bottom:16px;
-    }
-
-    .feature-card h3{
-      font-size:1.3rem;
-      color:white;
-      margin-bottom:10px;
-    }
-
-    .feature-card p{
-      color:#cbd5f5;
-      font-size:.95rem;
-      line-height:1.5;
-    }
-
-    .feature-card:hover{
-      transform:translateY(-8px);
-      border-color:var(--accent);
-      box-shadow:0 25px 60px rgba(47,230,214,.15);
-    }
-  </style>
+/* 🔚 FOOTER */
+footer{
+  padding:60px 20px;
+  text-align:center;
+  color:#94a3b8;
+}
+</style>
 </head>
 
 <body>
 
-  <nav class="navbar">
-    <div class="logo">ZEN<span>ZO</span></div>
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#ai">AI</a>
-      <a href="#contact">Contact</a>
+<canvas id="bg"></canvas>
+
+<nav class="navbar">
+  <div class="logo">ZEN<span>ZO</span></div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#premium">Premium</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>All-in-One <span>AI Smart</span><br>Utility Platform</h1>
+  <p>World-class ultra-premium AI utilities built for speed, privacy & productivity.</p>
+  <div class="hero-buttons">
+    <a href="#features" class="btn primary">Explore Features</a>
+    <a href="#premium" class="btn secondary">Go Premium</a>
+  </div>
+</header>
+
+<section id="features" class="features">
+  <h2>✨ Core Smart Features</h2>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/></svg>
+      <h3>Smart Calculators</h3>
+      <p>EMI, GST, Age & more.</p>
     </div>
-  </nav>
-
-  <!-- 🔥 HERO SECTION -->
-  <header class="hero">
-    <h1>
-      All-in-One <span>AI Smart</span><br>
-      Utility Platform
-    </h1>
-
-    <p>
-      ZENZO brings AI-powered tools, automation, and smart utilities
-      into one ultra-premium platform.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#features" class="btn primary">Explore Features</a>
-      <a href="#ai" class="btn secondary">Try AI Tools</a>
+    <div class="feature-card">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+      <h3>Converters</h3>
+      <p>Currency & unit tools.</p>
     </div>
-  </header>
-
-  <!-- ✨ FEATURES SECTION -->
-  <section id="features" class="features">
-    <h2>✨ Core Smart Features</h2>
-    <p class="features-sub">
-      Powerful AI-driven utilities designed to simplify, optimize,
-      and elevate your everyday digital life.
-    </p>
-
-    <div class="features-grid">
-      <div class="feature-card">
-        <span>🧮</span>
-        <h3>Smart Calculators</h3>
-        <p>EMI, GST, Age, Discount & daily life calculations with precision.</p>
-      </div>
-
-      <div class="feature-card">
-        <span>🌍</span>
-        <h3>Universal Converters</h3>
-        <p>Currency, unit & value converters powered by real-time logic.</p>
-      </div>
-
-      <div class="feature-card">
-        <span>🤖</span>
-        <h3>AI Utilities</h3>
-        <p>Smart AI tools that automate decisions & save your time.</p>
-      </div>
-
-      <div class="feature-card">
-        <span>⚡</span>
-        <h3>Ultra-Fast</h3>
-        <p>Lightweight, blazing-fast performance on any device.</p>
-      </div>
-
-      <div class="feature-card">
-        <span>🔒</span>
-        <h3>Privacy First</h3>
-        <p>No tracking. No data selling. Full control in your hands.</p>
-      </div>
-
-      <div class="feature-card">
-        <span>📱</span>
-        <h3>App-Ready</h3>
-        <p>PWA-ready foundation for future Android & iOS apps.</p>
-      </div>
+    <div class="feature-card">
+      <svg viewBox="0 0 24 24"><path d="M12 2l4 8-4 12-4-12z"/></svg>
+      <h3>AI Utilities</h3>
+      <p>Automation powered by AI.</p>
     </div>
-  </section>
+  </div>
+</section>
+
+<section id="premium" class="premium">
+  <h2>👑 Premium Pro Tools</h2>
+  <div class="premium-grid">
+    <div class="premium-card">
+      <div class="badge">PRO</div>
+      <h3>Advanced AI Assistant</h3>
+      <p>Unlimited smart tools.</p>
+    </div>
+    <div class="premium-card">
+      <div class="badge">PRO</div>
+      <h3>Ad-Free Experience</h3>
+      <p>Clean & distraction-free.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ads">
+  📢 Advertisement Space (Google-approved placement)
+</section>
+
+<footer>
+  © 2026 ZENZO • Ultra-Premium Smart Utility Platform
+</footer>
+
+<button id="installBtn">Install App</button>
+
+<script>
+/* 🌌 PARTICLES */
+const c=document.getElementById("bg"),x=c.getContext("2d");
+let w,h,p=[];
+function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
+window.onresize=resize;resize();
+for(let i=0;i<80;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1})
+function draw(){
+  x.clearRect(0,0,w,h);
+  p.forEach(a=>{
+    x.fillStyle="rgba(47,230,214,.5)";
+    x.beginPath();x.arc(a.x,a.y,a.r,0,7);x.fill();
+    a.y+=.3;if(a.y>h)a.y=0;
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+/* 📲 PWA INSTALL */
+let deferredPrompt;
+window.addEventListener("beforeinstallprompt",e=>{
+  e.preventDefault();
+  deferredPrompt=e;
+  document.getElementById("installBtn").style.display="block";
+});
+document.getElementById("installBtn").onclick=()=>{
+  deferredPrompt.prompt();
+};
+</script>
 
 </body>
 </html>
