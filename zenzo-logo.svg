@@ -1,3 +1,44 @@
-<svg width="220" height="60" ... >
-  ...
+<svg width="220" height="60" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="zenzoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2fe6d6"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <text x="0" y="45"
+        font-size="44"
+        font-weight="900"
+        font-family="Inter, Segoe UI, system-ui"
+        fill="url(#zenzoGradient)"
+        filter="url(#softGlow)">Z</text>
+
+  <text x="38" y="45"
+        font-size="44"
+        font-weight="900"
+        font-family="Inter, Segoe UI, system-ui"
+        fill="#ffffff">EN</text>
+
+  <text x="108" y="45"
+        font-size="44"
+        font-weight="900"
+        font-family="Inter, Segoe UI, system-ui"
+        fill="url(#zenzoGradient)"
+        filter="url(#softGlow)">ZO</text>
+
+  <text x="2" y="58"
+        font-size="10"
+        font-family="Inter, Segoe UI, system-ui"
+        fill="#94a3b8"
+        letter-spacing="1">
+    SMART • AI • UTILITY
+  </text>
 </svg>
