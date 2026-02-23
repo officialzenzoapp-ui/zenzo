@@ -1,197 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<title>ZENZO – Ultra-Premium Global AI Smart Utility Platform</title>
 
-  <title>ZENZO – Ultra-Premium Global AI Smart Utility Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ZENZO is a global AI-powered smart utility platform with calculators, converters, AI tools & premium productivity features.">
+<meta name="theme-color" content="#020617">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ZENZO is a global AI-powered smart utility platform offering calculators, converters, AI tools & premium productivity features.">
-  <meta name="keywords" content="ZENZO, AI utilities, smart tools, calculators, converters, premium AI platform">
-  <meta name="theme-color" content="#020617">
+<link rel="icon" href="https://raw.githubusercontent.com/officialzenzoapp-ui/zenzo/main/zenzo-logo.svg">
 
-  <!-- ✅ FAVICON -->
-  <link rel="icon" href="https://raw.githubusercontent.com/officialzenzoapp-ui/zenzo/main/zenzo-logo.svg">
+<style>
+:root{
+  --accent:#2fe6d6;
+  --accent2:#38bdf8;
+  --text:#e5e7eb;
+  --bg:#020617;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,system-ui;
+  background:var(--bg);
+  color:var(--text);
+  padding-top:90px;
+}
 
-  <style>
-    :root{
-      --accent:#2fe6d6;
-      --accent2:#38bdf8;
-      --text:#e5e7eb;
-      --bg:#020617;
-    }
+/* 🌌 BACKGROUND */
+canvas{position:fixed;inset:0;z-index:-1}
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+/* 🔝 NAVBAR */
+.navbar{
+  position:fixed;top:0;width:100%;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 28px;
+  background:rgba(2,6,23,.9);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  z-index:1000;
+}
+.logo{
+  display:flex;align-items:center;
+  animation:glow 3s infinite alternate;
+}
+@keyframes glow{
+  from{filter:drop-shadow(0 0 6px #2fe6d6)}
+  to{filter:drop-shadow(0 0 16px #38bdf8)}
+}
+.nav-links{
+  display:flex;
+}
+.nav-links a{
+  margin-left:22px;
+  color:#cbd5f5;
+  text-decoration:none;
+  font-weight:600;
+}
+.nav-links a:hover{color:var(--accent)}
 
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system;
-      background:var(--bg);
-      color:var(--text);
-      padding-top:90px;
-      overflow-x:hidden;
-    }
+/* 📱 HAMBURGER */
+.menu-btn{display:none;font-size:28px;cursor:pointer}
 
-    /* 🌌 BACKGROUND */
-    canvas{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-    }
+/* 🔥 HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 20px;
+}
+.hero h1{font-size:3.8rem;font-weight:900}
+.hero h1 span{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{max-width:720px;color:#cbd5f5;margin:24px auto 40px}
+.btn{
+  padding:14px 32px;
+  border-radius:30px;
+  font-weight:800;
+  text-decoration:none;
+  margin:6px;
+}
+.primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#020617;
+}
+.secondary{
+  border:1px solid rgba(255,255,255,.3);
+  color:white;
+}
 
-    /* 🔝 NAVBAR */
-    .navbar{
-      position:fixed;
-      top:0;
-      width:100%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:16px 28px;
-      background:rgba(2,6,23,.85);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      z-index:1000;
-    }
+/* ✨ SECTIONS */
+section{padding:120px 20px;text-align:center}
+.grid{
+  max-width:1200px;
+  margin:60px auto 0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  background:rgba(17,24,39,.65);
+  backdrop-filter:blur(16px);
+  border-radius:26px;
+  padding:38px;
+  border:1px solid rgba(255,255,255,.06);
+  transition:.35s;
+}
+.card:hover{
+  transform:translateY(-10px);
+  border-color:var(--accent);
+}
 
-    .nav-links a{
-      margin-left:22px;
-      color:#cbd5f5;
-      text-decoration:none;
-      font-weight:600;
-    }
-    .nav-links a:hover{color:var(--accent)}
+/* 🤖 AI */
+.ai-card{border:1px solid rgba(47,230,214,.4)}
 
-    /* 🔥 HERO */
-    .hero{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:40px 20px;
-    }
+/* 👑 PREMIUM */
+.premium{background:linear-gradient(135deg,rgba(47,230,214,.08),transparent)}
 
-    .hero h1{
-      font-size:3.8rem;
-      font-weight:900;
-      line-height:1.1;
-    }
+/* 🔐 LOGIN MODAL */
+.modal{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;justify-content:center;align-items:center;
+}
+.modal-box{
+  background:#020617;
+  padding:40px;
+  border-radius:20px;
+  width:320px;
+  border:1px solid var(--accent);
+}
+.modal-box input{
+  width:100%;padding:12px;margin:10px 0;
+  border-radius:10px;border:none;
+}
 
-    .hero h1 span{
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+/* 📢 ADS */
+.ads{
+  max-width:1200px;
+  margin:0 auto;
+  padding:40px;
+  border:2px dashed rgba(255,255,255,.15);
+  border-radius:20px;
+}
 
-    .hero p{
-      max-width:720px;
-      margin:24px auto 40px;
-      font-size:1.15rem;
-      color:#cbd5f5;
-    }
-
-    .hero-buttons{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-
-    .btn{
-      padding:14px 32px;
-      border-radius:30px;
-      font-weight:800;
-      text-decoration:none;
-      transition:.3s;
-    }
-
-    .btn.primary{
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      color:#020617;
-    }
-
-    .btn.primary:hover{
-      transform:translateY(-4px);
-      box-shadow:0 20px 50px rgba(47,230,214,.4);
-    }
-
-    .btn.secondary{
-      border:1px solid rgba(255,255,255,.25);
-      color:white;
-    }
-
-    /* ✨ FEATURES */
-    .features{
-      padding:120px 20px;
-      text-align:center;
-    }
-
-    .features-grid{
-      max-width:1200px;
-      margin:70px auto 0;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:30px;
-    }
-
-    .feature-card{
-      background:rgba(17,24,39,.65);
-      backdrop-filter:blur(16px);
-      border-radius:26px;
-      padding:38px;
-      border:1px solid rgba(255,255,255,.06);
-      transition:.35s;
-    }
-
-    .feature-card:hover{
-      transform:translateY(-10px);
-      box-shadow:0 30px 70px rgba(47,230,214,.18);
-      border-color:var(--accent);
-    }
-
-    /* 👑 PREMIUM */
-    .premium{
-      padding:120px 20px;
-      text-align:center;
-      background:linear-gradient(135deg,rgba(47,230,214,.08),transparent);
-    }
-
-    .premium-grid{
-      max-width:1100px;
-      margin:70px auto 0;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
-    }
-
-    .premium-card{
-      background:#020617;
-      border:1px solid rgba(47,230,214,.25);
-      border-radius:28px;
-      padding:40px 30px;
-    }
-
-    /* 📢 ADS */
-    .ads{
-      max-width:1200px;
-      margin:130px auto;
-      padding:40px;
-      border:2px dashed rgba(255,255,255,.15);
-      border-radius:20px;
-      text-align:center;
-      color:#94a3b8;
-    }
-
-    /* 🔚 FOOTER */
-    footer{
-      padding:60px 20px;
-      text-align:center;
-      color:#94a3b8;
-    }
-  </style>
+/* 📱 MOBILE */
+@media(max-width:768px){
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:70px;right:20px;
+    flex-direction:column;
+    background:#020617;
+    border-radius:16px;
+    padding:20px;
+  }
+  .nav-links.show{display:flex}
+  .menu-btn{display:block}
+}
+</style>
 </head>
 
 <body>
@@ -200,92 +173,100 @@
 
 <!-- 🔝 NAVBAR -->
 <nav class="navbar">
+  <div class="logo">
+    <img src="https://raw.githubusercontent.com/officialzenzoapp-ui/zenzo/main/zenzo-logo.svg" height="38">
+  </div>
 
-  <!-- ✅ ZENZO SVG LOGO (GITHUB RAW) -->
-  <img
-    src="https://raw.githubusercontent.com/officialzenzoapp-ui/zenzo/main/zenzo-logo.svg"
-    alt="ZENZO"
-    height="38"
-  />
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-  <div class="nav-links">
+  <div class="nav-links" id="nav">
     <a href="#features">Features</a>
+    <a href="#ai">AI</a>
     <a href="#premium">Premium</a>
-    <a href="#contact">Contact</a>
+    <a href="#" onclick="openLogin()">Login</a>
   </div>
 </nav>
 
 <!-- 🔥 HERO -->
 <header class="hero">
-  <h1>
-    All-in-One <span>AI Smart</span><br>
-    Utility Platform
-  </h1>
-  <p>
-    ZENZO is a global-grade ultra-premium AI utility platform built for speed,
-    privacy and next-generation productivity.
-  </p>
-
-  <div class="hero-buttons">
-    <a href="#features" class="btn primary">Explore Features</a>
-    <a href="#premium" class="btn secondary">Go Premium</a>
-  </div>
+  <h1>All-in-One <span>AI Smart</span><br>Utility Platform</h1>
+  <p>Global-grade ultra-premium AI utilities built for speed, privacy & productivity.</p>
+  <a href="#features" class="btn primary">Explore</a>
+  <a href="#premium" class="btn secondary">Go Premium</a>
 </header>
 
 <!-- ✨ FEATURES -->
-<section id="features" class="features">
-  <h2>✨ Core Smart Features</h2>
+<section id="features">
+  <h2>✨ Core Features</h2>
+  <div class="grid">
+    <div class="card">🧮 Smart Calculators</div>
+    <div class="card">🌍 Currency & Unit Converters</div>
+    <div class="card">⚡ Ultra-Fast Performance</div>
+    <div class="card">🔒 Privacy-First Design</div>
+  </div>
+</section>
 
-  <div class="features-grid">
-    <div class="feature-card">🧮 Smart Calculators (EMI, GST, Age)</div>
-    <div class="feature-card">🌍 Currency & Unit Converters</div>
-    <div class="feature-card">🤖 AI-Powered Utilities</div>
-    <div class="feature-card">⚡ Ultra-Fast Performance</div>
-    <div class="feature-card">🔒 Privacy-First Design</div>
-    <div class="feature-card">📱 App-Ready (PWA)</div>
+<!-- 🤖 AI -->
+<section id="ai">
+  <h2>🤖 AI Tools</h2>
+  <div class="grid">
+    <div class="card ai-card">AI Chat Assistant</div>
+    <div class="card ai-card">AI Text Generator</div>
+    <div class="card ai-card">AI Automation Tools</div>
   </div>
 </section>
 
 <!-- 👑 PREMIUM -->
 <section id="premium" class="premium">
-  <h2>👑 Premium Pro Tools</h2>
-
-  <div class="premium-grid">
-    <div class="premium-card">
-      <h3>Advanced AI Assistant</h3>
-      <p>Unlimited access to smart AI tools.</p>
+  <h2>👑 Premium Plans</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Free</h3>
+      <p>Basic tools + Ads</p>
     </div>
-
-    <div class="premium-card">
-      <h3>Ad-Free Experience</h3>
-      <p>Clean, distraction-free premium UI.</p>
+    <div class="card">
+      <h3>PRO</h3>
+      <p>No Ads + Unlimited AI</p>
     </div>
   </div>
 </section>
 
 <!-- 📢 ADS -->
 <section class="ads">
-  📢 Advertisement Space (Google-Approved Placement)
+  📢 Google-Approved Advertisement Space
 </section>
 
-<!-- 🔚 FOOTER -->
-<footer id="contact">
-  © 2026 ZENZO • Global AI Smart Utility Platform
-</footer>
+<footer>© 2026 ZENZO • Global AI Smart Utility Platform</footer>
 
-<!-- 🌌 PARTICLES -->
+<!-- 🔐 LOGIN -->
+<div class="modal" id="login">
+  <div class="modal-box">
+    <h3>Login to ZENZO</h3>
+    <input placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button class="btn primary" onclick="closeLogin()">Login</button>
+  </div>
+</div>
+
+<!-- 🌌 PARTICLES + JS -->
 <script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("show");
+}
+function openLogin(){document.getElementById("login").style.display="flex"}
+function closeLogin(){document.getElementById("login").style.display="none"}
+
 const c=document.getElementById("bg"),x=c.getContext("2d");
 let w,h,p=[];
 function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
-window.onresize=resize;resize();
-for(let i=0;i<90;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1});
+resize();window.onresize=resize;
+for(let i=0;i<80;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1});
 function draw(){
   x.clearRect(0,0,w,h);
   p.forEach(a=>{
-    x.fillStyle="rgba(47,230,214,.45)";
+    x.fillStyle="rgba(47,230,214,.4)";
     x.beginPath();x.arc(a.x,a.y,a.r,0,7);x.fill();
-    a.y+=.25;if(a.y>h)a.y=0;
+    a.y+=.3;if(a.y>h)a.y=0;
   });
   requestAnimationFrame(draw);
 }
